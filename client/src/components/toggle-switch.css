@@ -1,0 +1,68 @@
+.toggle-switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.toggle-switch:has(.toggle-switch__input:disabled) {
+  cursor: default;
+}
+
+.toggle-switch__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.toggle-switch__track {
+  position: relative;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background-color: var(--gray-300);
+  transition: background-color 125ms;
+}
+
+.toggle-switch__track-thumb {
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: transform 125ms;
+}
+
+.toggle-switch__input:checked + .toggle-switch__track {
+  background-color: #1d4ed8;
+}
+
+.toggle-switch__input:checked + .toggle-switch__track .toggle-switch__track-thumb {
+  transform: translateX(1.25rem);
+}
+
+.toggle-switch__input:focus-visible + .toggle-switch__track {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.toggle-switch__input:disabled + .toggle-switch__track {
+  opacity: 0.5;
+}
+
+.toggle-switch__label {
+  font-family: 'Roboto', sans-serif;
+  font-size: var(--text-small);
+  color: var(--gray-800);
+}
